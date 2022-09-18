@@ -40,8 +40,6 @@ function addEditEvent() {
 function addTask() {
   if (
     descriptionInput.value.length > 2 &&
-    typeof descriptionInput.value === "string" &&
-    dateTargetInput.value !== null &&
     dateTargetInput.valueAsNumber >= todayDate.getTime()
   ) {
     taskManager1.add(descriptionInput.value, dateTargetInput);
@@ -67,12 +65,11 @@ function showTaskManager() {
   let counter = 0;
   listTasks.innerHTML = "";
   taskManager1.tasks.map((element) => {
-    let isPassed = passedDate(element);
     if (element.status === "completed") {
       listTasks.innerHTML += `<li class="mt-2" id="${index}" readonly><button class="completed green me-1">🏁</button><button class="delete bi bi-trash me-1"></button><button class="edit bi bi-pencil-square"></button> ${element.description} </li>`;
       counter++;
     } else
-      listTasks.innerHTML += `<li class="${isPassed} mt-2" id="${index}" readonly><button class="completed me-1">🏁</button><button class="delete bi bi-trash me-1"></button><button class="edit bi bi-pencil-square"></button> ${element.description} </li>`;
+      listTasks.innerHTML += `<li class="mt-2" id="${index}" readonly><button class="completed me-1">🏁</button><button class="delete bi bi-trash me-1"></button><button class="edit bi bi-pencil-square"></button> ${element.description} </li>`;
 
     index++;
   });
@@ -88,8 +85,4 @@ function editDescription(event) {
     taskManager1.tasks[index].description = editedDescription;
   }
   showTaskManager();
-}
-function passedDate(element) {
-  if (element.dateTarget.valueAsNumber < todayDate.valueOf()) return "passed";
-  return "";
 }

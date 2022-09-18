@@ -1,9 +1,12 @@
 class TaskManager {
-  tasks = [];
-  id = 0;
+  constructor() {
+    this.tasks = [];
+    this.id = 0;
+  }
 
   add(description, dateTarget) {
-    this.tasks.push(new Task(description, this.id, dateTarget));1
+    this.tasks.push(new Task(description, this.id, dateTarget));
+    1;
     this.id++;
   }
   delete(index) {
