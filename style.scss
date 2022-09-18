@@ -1,0 +1,26 @@
+body {
+  margin: 20px;
+  
+}
+button {
+  border-radius: 50px;
+  border-width: 1px;
+  #completed {
+    border-color: blue;
+  }
+}
+.green {
+  background-color: green;
+}
+.passed {
+  background-color: rgba($color: #860202, $alpha: 0.3);
+}
+li {
+  list-style: none;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  box-shadow: -3px 3px 14px 0px rgba(77, 102, 103, 1);
+  border-radius: 20px;
+  border: 1px solid rgb(77, 102, 103);
+}

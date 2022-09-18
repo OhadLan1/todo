@@ -1,0 +1,33 @@
+body {
+  margin: 20px;
+}
+
+button {
+  border-radius: 50px;
+  border-width: 1px;
+}
+button #completed {
+  border-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.passed {
+  background-color: rgba(134, 2, 2, 0.3);
+}
+
+li {
+  list-style: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5px;
+  box-shadow: -3px 3px 14px 0px rgb(77, 102, 103);
+  border-radius: 20px;
+  border: 1px solid rgb(77, 102, 103);
+}/*# sourceMappingURL=style.css.map */
