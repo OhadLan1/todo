@@ -47,12 +47,12 @@ function addTask() {
   } else alert("please enter logical task");
 
   descriptionInput.value = "";
+  dateTargetInput.value = "";
 }
 function deleteTask(event) {
   let index = event.path[1].id;
   taskManager1.delete(index);
   showTaskManager();
-  addDeleteEvent();
 }
 function changeStat(event) {
   let index = Number(event.path[1].id);
@@ -68,9 +68,9 @@ function showTaskManager() {
     if (element.status === "completed") {
       listTasks.innerHTML += `<li class="mt-2" id="${index}" readonly><button class="completed green me-1">🏁</button><button class="delete bi bi-trash me-1"></button><button class="edit bi bi-pencil-square"></button> ${element.description} </li>`;
       counter++;
-    } else
+    } else {
       listTasks.innerHTML += `<li class="mt-2" id="${index}" readonly><button class="completed me-1">🏁</button><button class="delete bi bi-trash me-1"></button><button class="edit bi bi-pencil-square"></button> ${element.description} </li>`;
-
+    }
     index++;
   });
   numTasksCompleted.innerText = `${counter} / ${taskManager1.tasks.length} `;
@@ -81,8 +81,9 @@ function showTaskManager() {
 function editDescription(event) {
   let index = Number(event.path[1].id);
   let editedDescription = window.prompt("edit your task description", "");
-  if (editedDescription !== null) {
+  if (editedDescription !== null && editDescription.length > 2) {
     taskManager1.tasks[index].description = editedDescription;
-  }
+  } else if (editedDescription === null) {
+  } else alert("please enter logical task");
   showTaskManager();
 }

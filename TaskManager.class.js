@@ -6,7 +6,6 @@ class TaskManager {
 
   add(description, dateTarget) {
     this.tasks.push(new Task(description, this.id, dateTarget));
-    1;
     this.id++;
   }
   delete(index) {
